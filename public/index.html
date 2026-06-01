@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Whisky vergelijker</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <aside class="controls" aria-label="Vergelijkingsinstellingen">
+          <div>
+            <p class="eyebrow">Scotch similarity</p>
+            <h1>Whisky vergelijker</h1>
+          </div>
+
+          <label class="field">
+            <span>Kies whisky</span>
+            <select id="whiskySelect"></select>
+          </label>
+
+          <label class="field">
+            <span>Zoek in resultaten</span>
+            <input id="searchInput" type="search" placeholder="Bijv. peat, sherry, Talisker">
+          </label>
+
+          <div class="field">
+            <span>Aantal resultaten</span>
+            <input id="limitInput" type="range" min="5" max="30" step="1" value="12">
+            <output id="limitOutput">12</output>
+          </div>
+
+          <div id="weightControls" class="weights"></div>
+
+          <label class="toggle">
+            <input id="geoToggle" type="checkbox">
+            <span>Geografie licht meewegen</span>
+          </label>
+
+          <label class="toggle">
+            <input id="enthusiastToggle" type="checkbox" checked>
+            <span>Liefhebbersprofiel gebruiken</span>
+          </label>
+        </aside>
+
+        <section class="results-panel" aria-live="polite">
+          <div class="selected-card">
+            <div>
+              <p class="eyebrow">Geselecteerd</p>
+              <h2 id="selectedName"></h2>
+            </div>
+            <div id="selectedTags" class="tag-list"></div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Match</th>
+                  <th>Whisky</th>
+                  <th>Gedeelde kenmerken</th>
+                  <th>Afstand</th>
+                </tr>
+              </thead>
+              <tbody id="resultsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
